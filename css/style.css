@@ -490,11 +490,11 @@ span {
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
-  width: 75%;
+  width: 100%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
-  width: 1%;
+  width: 25%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
@@ -905,3 +905,68 @@ span {
   padding: 4px;
   border-radius: 4px;
 }
+
+
+.lista-alunos {
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
+  padding: 10px;
+  list-style: none;
+  background: #131313;
+}
+
+.lista-alunos ul {
+  display:flex;
+}
+
+.foto-alunos {
+  width: 45px;
+  border: 2px solid yellow;
+  border-radius: 50%;
+}
+
+section .turmas{
+  margin-top: 0;
+}
+
+.heading2 {
+  font-size: 5rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+ul .nome-aluno {
+  width:100%;  
+  text-align: center;
+  list-style: none;
+  margin-top: 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #242424;
+}
+
+.foto-div {
+  width: 10px;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+@media (max-width: 400px) {
+  ul .nome-aluno {
+    width:100%;
+     text-align: center;
+     list-style: none;
+     margin-top: 15px;
+     font-size: 10px;
+   }
+   .heading2 {
+    font-size: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+} 
+
+
+.ul-aluno:hover {
+  background: #212121;
+}
+

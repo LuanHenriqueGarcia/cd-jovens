@@ -37,9 +37,6 @@ const texts = [
     document.getElementById('content-image').src = images[currentIndex];
     document.getElementById('professor-name').textContent = names[currentIndex];
   });
-  
-  
-  
 
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
