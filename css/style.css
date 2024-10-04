@@ -917,12 +917,14 @@ span {
 
 .lista-alunos ul {
   display:flex;
+  color: #ededed;
 }
 
 .foto-alunos {
   width: 45px;
   border: 2px solid yellow;
   border-radius: 50%;
+  z-index: 1;
 }
 
 section .turmas{
@@ -933,6 +935,7 @@ section .turmas{
   font-size: 5rem;
   margin-top: 3rem;
   text-align: center;
+  padding: 15px;
 }
 
 ul .nome-aluno {
@@ -965,8 +968,40 @@ ul .nome-aluno {
   }
 } 
 
+@media (max-width: 750px) {
+   .heading2 {
+    font-size: 3.2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+} 
+
+@media (max-width: 1000px) {
+  .heading2 {
+   font-size: 4.2rem;
+   margin-top: 3rem;
+   text-align: center;
+ }
+} 
 
 .ul-aluno:hover {
   background: #212121;
+  text-decoration: underline;
 }
 
+.teste{
+  border: 1px solid var(--main-color);
+  background: #0c131c;
+  border-radius: 14px;
+  padding: 40px;
+}
+
+#aluno-nome {
+  text-align: center;
+  padding: 20px;
+}
+
+#email {
+  padding-top: 20px;
+  font-size: 1.4em;
+}
