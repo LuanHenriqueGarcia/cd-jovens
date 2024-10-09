@@ -23,4 +23,4 @@
   
    ```bash
 
-https://github.com/LuanHenriqueGarcia/codificando-jovens.git
+https://github.com/LuanHenriqueGarcia/cd-jovens.git
