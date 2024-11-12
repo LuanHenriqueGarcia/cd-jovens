@@ -110,18 +110,18 @@ section {
   font-size: 3.2rem;
   font-weight: 700;
   color: transparent;
-  -webkit-text-stroke: .7px var(--main-color);
-  background-image: linear-gradient( var(--main-color),  var(--main-color));
+  -webkit-text-stroke: 0.7px var(--main-color);
+  background-image: linear-gradient(var(--main-color), var(--main-color));
   background-repeat: no-repeat;
   background-clip: text;
-  background-position: -33rem 0; 
+  background-position: -33rem 0;
   animation: homeBgText 6s linear infinite;
   animation-delay: 2s;
 }
 
 .home-content .text-animate h3::before {
-  content: '';
-  position: absolute;  
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   width: 0;
@@ -638,8 +638,6 @@ span {
   color: var(--text-color);
 }
 
-
-
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
@@ -728,7 +726,7 @@ span {
   html {
     font-size: 50%;
   }
-  
+
   .home-content h1 {
     display: flex;
     flex-direction: column;
@@ -738,14 +736,13 @@ span {
     width: 160px;
   }
 
-  .home-sci a{
+  .home-sci a {
     width: 38px;
     height: 38px;
   }
 }
 
-
-@media (max-width: 462px){
+@media (max-width: 462px) {
   .home-content h1 {
     font-size: 5.2rem;
   }
@@ -780,12 +777,12 @@ span {
     text-align: center;
   }
 
-  .home-content h1{
+  .home-content h1 {
     font-size: 5rem;
   }
 }
 
-@keyframes  homeBgText {
+@keyframes homeBgText {
   0%,
   10%,
   100% {
@@ -797,7 +794,7 @@ span {
   }
 }
 
-@keyframes  homeCursorText {
+@keyframes homeCursorText {
   0%,
   10%,
   100% {
@@ -816,7 +813,7 @@ span {
   }
 }
 
-@keyframes  aboutSpinner {
+@keyframes aboutSpinner {
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -826,12 +823,12 @@ span {
   color: var(--text-color);
 }
 
-@media (max-height: 515px){
+@media (max-height: 515px) {
   .home-sci {
     visibility: hidden;
   }
 }
-  
+
 .videos {
   padding: 4rem 9%;
   background: var(--bg-third-color);
@@ -906,7 +903,6 @@ span {
   border-radius: 4px;
 }
 
-
 .lista-alunos {
   border: 1px solid var(--main-color);
   border-radius: 15px;
@@ -916,7 +912,7 @@ span {
 }
 
 .lista-alunos ul {
-  display:flex;
+  display: flex;
   color: #ededed;
 }
 
@@ -927,7 +923,7 @@ span {
   z-index: 1;
 }
 
-section .turmas{
+section .turmas {
   margin-top: 0;
 }
 
@@ -939,7 +935,7 @@ section .turmas{
 }
 
 ul .nome-aluno {
-  width:100%;  
+  width: 100%;
   text-align: center;
   list-style: none;
   margin-top: 15px;
@@ -955,41 +951,41 @@ ul .nome-aluno {
 
 @media (max-width: 400px) {
   ul .nome-aluno {
-    width:100%;
-     text-align: center;
-     list-style: none;
-     margin-top: 15px;
-     font-size: 10px;
-   }
-   .heading2 {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    margin-top: 15px;
+    font-size: 10px;
+  }
+  .heading2 {
     font-size: 3rem;
     margin-top: 3rem;
     text-align: center;
   }
-} 
+}
 
 @media (max-width: 750px) {
-   .heading2 {
+  .heading2 {
     font-size: 3.2rem;
     margin-top: 3rem;
     text-align: center;
   }
-} 
+}
 
 @media (max-width: 1000px) {
   .heading2 {
-   font-size: 4.2rem;
-   margin-top: 3rem;
-   text-align: center;
- }
-} 
+    font-size: 4.2rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+}
 
 .ul-aluno:hover {
   background: #212121;
   text-decoration: underline;
 }
 
-.teste{
+.teste {
   border: 1px solid var(--main-color);
   background: #0c131c;
   border-radius: 14px;
@@ -1006,57 +1002,55 @@ ul .nome-aluno {
   font-size: 1.4em;
 }
 
-
-
 .image-container {
   display: flex;
-  gap: 10px; /* Espaçamento entre as imagens */
-  justify-content: center; /* Alinha as imagens ao centro */
+  gap: 10px;
+  justify-content: center;
 }
 
 .image-container {
   display: flex;
   gap: 10px;
   justify-content: center;
-  flex-wrap: wrap; /* Permite que as imagens se movam para a próxima linha */
+  flex-wrap: wrap;
 }
 
 .myImg {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 }
 
 .myImg:hover {
   opacity: 0.7;
 }
 
-/* Media query para telas menores */
 @media (max-width: 700px) {
   .image-container {
-    flex-direction: column; /* Alinha as imagens verticalmente */
-    align-items: center; /* Centraliza as imagens no modo coluna */
+    flex-direction: column;
+    align-items: center;
   }
 
   .myImg {
-    width: 100%; /* Ajusta as imagens para ocuparem a largura completa do contêiner */
-    max-width: 300px; /* Limita a largura máxima das imagens para não ficarem muito grandes */
+    width: 100%;
+    max-width: 300px;
   }
 }
 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.9); 
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {
@@ -1077,7 +1071,8 @@ ul .nome-aluno {
   height: 150px;
 }
 
-.modal-content, #caption {
+.modal-content,
+#caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
@@ -1085,23 +1080,35 @@ ul .nome-aluno {
 }
 
 .out {
-animation-name: zoom-out;
-animation-duration: 0.6s;
+  animation-name: zoom-out;
+  animation-duration: 0.6s;
 }
 
 @-webkit-keyframes zoom {
-  from {-webkit-transform:scale(1)}
-  to {-webkit-transform:scale(2)}
+  from {
+    -webkit-transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(2);
+  }
 }
 
 @keyframes zoom {
-  from {transform:scale(0.4)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0.4);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes zoom-out {
-  from {transform:scale(1)}
-  to {transform:scale(0)}
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
 }
 
 .close {
@@ -1121,9 +1128,9 @@ animation-duration: 0.6s;
   cursor: pointer;
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
   .modal-content {
-      width: 100%;
+    width: 100%;
   }
 }
 

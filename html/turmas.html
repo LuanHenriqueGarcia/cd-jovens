@@ -1,88 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Turmas</title>
-</head>
-<body>
-  <h1 class="heading2">Bem-vindo a sua Turma de <span class="verde">2024</span></h1>
-  <section class="turmas"> 
-    <li class="lista-alunos">
-      <a href="./detalhesAlunos.html?id=1">
-        <ul class="ul-aluno">
-          <div class="foto-div"><img src="../img/image.png" class="foto-alunos"></div>
-          <div class="nome-aluno">
-            <p>Eduarda Maganha de Almeida (Professora)</p>
-          </div>  
-        </ul>
-      </a>
-      <a href="./detalhesAlunos.html?id=2">
-        <ul class="ul-aluno">
-          <div class="foto-div"><img src="../img/image1.png" class="foto-alunos"></div>
-          <div class="nome-aluno">
-            <p>Cleber de Souza Relli (professor)</p>
-          </div>  
-        </ul>
-      </a>
-      <a href="./detalhesAlunos.html?id=3">
-        <ul class="ul-aluno">
-          <div class="foto-div"><img src="../img/eu.png" class="foto-alunos"></div>
-          <div class="nome-aluno">
-            <p>Luan Henrique Garcia Todero (desenvolvedor)</p>
-          </div>  
-        </ul>
-      </a>
-      <a href="./detalhesAlunos.html?id=4">
-        <ul class="ul-aluno">
-          <div class="foto-div"><img src="../img/renan.png" class="foto-alunos" width="10px"></div>
-          <div class="nome-aluno">
-            <p>Renan Yukio (desenvolvedor)</p>
-          </div>  
-        </ul>
-      </a>
-    </li>
-  </section>
-  
-  <section class="fotos-all">
-    <h1 class="heading2">Galeria <span class="verde">2024</span></h1><br>
-    <div class="image-container">
-      <img class="myImg" src="../img/time.png" width="300" height="200" alt="Imagem 1">
-      <img class="myImg" src="../img/time2.png" width="300" height="200" alt="Imagem 2">
-      <img class="myImg" src="../img/foto3.png"  width="300" height="200" alt="Imagem 3">
-    </div>
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="img01">
-      <div id="caption"></div>
-    </div>
-  </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Turmas</title>
+  </head>
+  <body>
+    <h1 class="heading2">
+      Bem-vindo a sua Turma de <span class="verde">2024</span>
+    </h1>
+    <section class="turmas">
+      <li class="lista-alunos">
+        <a href="./detalhesAlunos.html?id=1">
+          <ul class="ul-aluno">
+            <div class="foto-div">
+              <img src="../img/image.png" class="foto-alunos" />
+            </div>
+            <div class="nome-aluno">
+              <p>Eduarda Maganha de Almeida (Professora)</p>
+            </div>
+          </ul>
+        </a>
+        <a href="./detalhesAlunos.html?id=2">
+          <ul class="ul-aluno">
+            <div class="foto-div">
+              <img src="../img/image1.png" class="foto-alunos" />
+            </div>
+            <div class="nome-aluno">
+              <p>Cleber de Souza Relli (professor)</p>
+            </div>
+          </ul>
+        </a>
+        <a href="./detalhesAlunos.html?id=3">
+          <ul class="ul-aluno">
+            <div class="foto-div">
+              <img src="../img/eu.png" class="foto-alunos" />
+            </div>
+            <div class="nome-aluno">
+              <p>Luan Henrique Garcia Todero (desenvolvedor)</p>
+            </div>
+          </ul>
+        </a>
+        <a href="./detalhesAlunos.html?id=4">
+          <ul class="ul-aluno">
+            <div class="foto-div">
+              <img src="../img/renan.png" class="foto-alunos" width="10px" />
+            </div>
+            <div class="nome-aluno">
+              <p>Renan Yukio (desenvolvedor)</p>
+            </div>
+          </ul>
+        </a>
+      </li>
+    </section>
 
-<script>
-  var modal = document.getElementById("myModal");
-  var modalImg = document.getElementById("img01");
-  var captionText = document.getElementById("caption");
+    <section class="fotos-all">
+      <h1 class="heading2">Galeria <span class="verde">2024</span></h1>
+      <br />
+      <div class="image-container">
+        <img
+          class="myImg"
+          src="../img/time.png"
+          width="300"
+          height="200"
+          alt="Imagem 1"
+        />
+        <img
+          class="myImg"
+          src="../img/time2.png"
+          width="300"
+          height="200"
+          alt="Imagem 2"
+        />
+        <img
+          class="myImg"
+          src="../img/foto3.png"
+          width="300"
+          height="200"
+          alt="Imagem 3"
+        />
+      </div>
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01" />
+        <div id="caption"></div>
+      </div>
+    </section>
 
-  var images = document.getElementsByClassName("myImg");
-  for (let img of images) {
-    img.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    }
-  }
+    <script>
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
 
-  var closeButton = document.getElementsByClassName("close")[0];
-  closeButton.onclick = function() { 
-    modal.style.display = "none";
-  }
+      var images = document.getElementsByClassName("myImg");
+      for (let img of images) {
+        img.onclick = function () {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt;
+        };
+      }
 
-  modal.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-</body>
+      var closeButton = document.getElementsByClassName("close")[0];
+      closeButton.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      modal.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>
