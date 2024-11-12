@@ -1025,6 +1025,7 @@ ul .nome-aluno {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 }
 
 .myImg:hover {

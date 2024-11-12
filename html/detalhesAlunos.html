@@ -7,10 +7,7 @@
   <title>Detalhes do Aluno</title>
 </head>
 <body>
-  <div class="center">
-   
-    
-  </div>
+  <div class="center"></div>
 
   <section class="about" id="about">
     <div class="teste">
@@ -23,23 +20,20 @@
         <h3 id="email">Contato:</h3>
         <p id="content-text"></p>
         <div class="btn-box btns">
-          <a href="turmas.html"><button class="btn">voltar</button></a>
+          <a href="./turmas.html"><button class="btn">voltar</button></a>
         </div>
-        
       </div>
     </div>
   </section>
 
-  
-
   <script>
     const alunos = [
-      { id: 1, nome: "Eduarda", foto: "/img/image.png", email: "-" },
-      { id: 2, nome: "Cleber", foto: "/img/image1.png", email: "-" },
-      { id: 3, nome: "Luan", foto: "/img/eu.png", email: "adasdasdas" },
-      { id: 4, nome: "Renan", foto: "/img/renan.png", email: "adasdasdas" },
-      { id: 5, nome: "Eduarda", foto: "/img/image.png", email: "adasdasdas" },
-      { id: 6, nome: "Cleber", foto: "/img/image1.png", email: "adasdasdas" }
+      { id: 1, nome: "Eduarda", foto: "../img/image.png", email: "-" },
+      { id: 2, nome: "Cleber", foto: "../img/image1.png", email: "-" },
+      { id: 3, nome: "Luan", foto: "../img/eu.png", email: "adasdasdas" },
+      { id: 4, nome: "Renan", foto: "../img/renan.png", email: "adasdasdas" },
+      { id: 5, nome: "Eduarda", foto: "../img/image.png", email: "adasdasdas" },
+      { id: 6, nome: "Cleber", foto: "../img/image1.png", email: "adasdasdas" }
     ];
 
     const params = new URLSearchParams(window.location.search);
@@ -54,7 +48,6 @@
     } else {
       document.getElementById('aluno-nome').textContent = "Aluno não encontrado";
     }
-    
   </script>
 </body>
 </html>
