@@ -1,181 +1,275 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
-
     <title>Aulas</title>
-  </head>
-  <body>
-    <section class="videos" id="videos">
-      <h2 class="heading">Aulas <span>Em Vídeo</span></h2>
-      <div class="video-container">
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>Módulo Word <i class="bx bxs-calendar"></i>20/04/2024</h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1ZhD3aa46-jnBxVlplLFBHN0gy36asgOQ/preview"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        :root {
+            --main-color: #c9fe00;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #333;
+            padding-top: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #444;
+            color: var(--main-color);
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            min-height: 100vh;
+        }
+
+        .video-item {
+            position: relative;
+            margin-bottom: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .nav-tabs {
+            border-color: #444;
+        }
+
+        .nav-tabs .nav-item .nav-link {
+            color: #e0e0e0;
+            background-color: #333;
+            border: 1px solid #444;
+            transition: background-color 0.3s;
+        }
+
+        .nav-tabs .nav-item .nav-link.active {
+            color: #fff;
+            background-color: var(--main-color);
+            border: 1px solid var(--main-color);
+        }
+
+        .nav-tabs .nav-item .nav-link:hover {
+            color: #fff;
+            background-color: #444;
+        }
+
+        button {
+            background-color: var(--main-color);
+            color: #fff;
+            border: 1px solid var(--main-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a4d100;
+            border-color: #a4d100;
+        }
+
+        .video-description {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #333;
+            color: #ccc;
+            border-radius: 5px;
+        }
+
+        .center-logo {
+            text-align: center;
+        }
+
+        .logout-icon {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #272727;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .logout-icon:hover {
+            background-color: #000000;
+        }
+
+        /* Media queries para tornar o layout responsivo */
+        @media (max-width: 767px) {
+            .sidebar {
+                position: absolute;
+                height: auto;
+                width: 100%;
+                box-shadow: none;
+                padding-top: 10px;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            .sidebar a {
+                font-size: 16px;
+                padding: 8px 10px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            iframe {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="center-logo">
+            <a href="#" class="logo"><span style="color: #c9fe00">&lt;</span>od<span style="color: #c9fe00">:</span>fica
+                Jo<span id="barra">\<span style="color: #c9fe00">/</span></span>ens <span style="color: #c9fe00"> _</span></a>
         </div>
+        <a href="#home" data-toggle="tab" class="tab-link" data-target="#home">Home</a>
+        <a href="#modulo1" data-toggle="tab" class="tab-link" data-target="#modulo1">Módulo 1: Word</a>
+        <a href="#modulo2" data-toggle="tab" class="tab-link" data-target="#modulo2">Módulo 2: Excel</a>
+        <a href="#modulo3" data-toggle="tab" class="tab-link" data-target="#modulo3">Módulo 3: Realidade Virtual</a>
 
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>Módulo Word <i class="bx bxs-calendar"></i>20/04/2024</h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1ceoHnD5_gpa--oagGBBf6JcYTCkjmkKg/preview"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
+        <!-- Ícone de logout dentro da sidebar -->
+        <a href="/index.html" class="logout-icon">
+            <i class="bx bx-log-out"></i>
+        </a>
+    </div>
+
+    <div class="content">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#modulo1">Módulo 1: Word</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#modulo2">Módulo 2: Excel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#modulo3">Módulo 3: Realidade Virtual</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h3>Home</h3>
+                <p>Bem-vindo à plataforma de aulas online!</p>
+            </div>
+
+            <div id="modulo1" class="container tab-pane fade"><br>
+                <h3>Módulo Word</h3>
+                <div class="video-item">
+                    <iframe src="https://drive.google.com/file/d/1ZhD3aa46-jnBxVlplLFBHN0gy36asgOQ/preview" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-description">
+                        <h5>Descrição:</h5>
+                        <p>Esta aula aborda os conceitos essenciais do Microsoft Word, como formatação de texto, criação de documentos e uso de recursos avançados para produtividade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modulo2" class="container tab-pane fade"><br>
+                <h3>Módulo Excel</h3>
+                <div class="video-item">
+                    <iframe src="https://drive.google.com/file/d/1OFSQIukMVU44psbgijnupOX92Dg51SKW/preview" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-description">
+                        <h5>Descrição:</h5>
+                        <p>Aprenda como utilizar as principais funções do Excel, incluindo fórmulas, tabelas dinâmicas e gráficos para análise de dados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modulo3" class="container tab-pane fade"><br>
+                <h3>Módulo Realidade Virtual e Aumentada</h3>
+                <div class="video-item">
+                    <iframe src="https://drive.google.com/file/d/1_Xf20RCeFK2vtHX9iC1GHCb15CxxZ8yD/preview" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-description">
+                        <h5>Descrição:</h5>
+                        <p>Explore os fundamentos da realidade virtual e aumentada, com exemplos práticos e aplicações em diferentes áreas.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>Módulo Excel <i class="bx bxs-calendar"></i>25/05/2024</h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1OFSQIukMVU44psbgijnupOX92Dg51SKW/preview"
-            frameborder="0"
-          ></iframe>
-        </div>
-
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>Módulo Excel <i class="bx bxs-calendar"></i>08/06/2024</h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1XCCHqAqHVIJFLcxfqZRRal3Copa9QUKr/preview"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>Módulo Excel <i class="bx bxs-calendar"></i>17/06/2024</h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1aNDfdN8DGvgfhtvWE27oJ8VNzBKzjdx-/preview"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="video-item">
-          <div class="video-overlay">
-            <h3>
-              Módulo Realidade Virtual e Aumentada
-              <i class="bx bxs-calendar"></i>11/07/2024
-            </h3>
-            <button onclick="revelarVideo(this)">Assistir Aula</button>
-          </div>
-          <iframe
-            src="https://drive.google.com/file/d/1_Xf20RCeFK2vtHX9iC1GHCb15CxxZ8yD/preview"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-text">
-        <p>
-          &copy; 2024 - Luan Henrique |
-          <a href="/cd-jovens/index.html" id="voltar">voltar</a>
-        </p>
-      </div>
-      <div class="footer-icorTop">
-        <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
-      </div>
-    </footer>
-
-    <script src="/cd-jovens/js/script.js"></script>
+    </div>
 
     <script>
-      function revelarVideo(button) {
-        var overlay = button.parentElement;
-        overlay.style.display = "none";
-      }
-
-      const generos = ["professora", "professor"];
-
-      const texts = [
-        "Realidade virtual, Robótica e IA",
-        "Word, Excel e Lógica de programação",
-      ];
-
-      const images = ["/cd-jovens/img/image.png", "/cd-jovens/img/image1.png"];
-
-      const names = ["Eduarda", "Cleber"];
-
-      let currentIndex = 0;
-
-      document
-        .getElementById("next-btn")
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-
-          currentIndex = (currentIndex + 1) % texts.length;
-
-          document.getElementById("professor-genero").textContent =
-            generos[currentIndex];
-          document.getElementById("content-text").textContent =
-            texts[currentIndex];
-          document.getElementById("content-image").src = images[currentIndex];
-          document.getElementById("professor-name").textContent =
-            names[currentIndex];
-        });
-
-      let menuIcon = document.querySelector("#menu-icon");
-      let navbar = document.querySelector(".navbar");
-
-      menuIcon.onclick = () => {
-        menuIcon.classList.toggle("bx-x");
-        navbar.classList.toggle("active");
-      };
-
-      let sections = document.querySelectorAll("section");
-      let navLinks = document.querySelectorAll("header nav a");
-
-      window.onscroll = () => {
-        sections.forEach((sec) => {
-          let top = window.scrollY;
-          let offset = sec.offsetTop - 100;
-          let height = sec.offsetHeight;
-          let id = sec.getAttribute("id");
-
-          if (top >= offset && top < offset + height) {
-            navLinks.forEach((link) => {
-              link.classList.remove("active");
-              document
-                .querySelector('header nav a[href*="' + id + '"]')
-                .classList.add("active");
+        $(document).ready(function () {
+            $('.tab-link').click(function (e) {
+                e.preventDefault();
+                var targetTab = $(this).data('target');
+                $('.nav-tabs a[href="' + targetTab + '"]').tab('show');
             });
-          }
         });
-
-        let header = document.querySelector("header");
-
-        header.classList.toggle("sticky", window.scrollY > 100);
-
-        menuIcon.classList.remove("bx-x");
-        navbar.classList.remove("active");
-      };
     </script>
-  </body>
+
+</body>
+
 </html>
