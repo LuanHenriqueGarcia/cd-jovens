@@ -4,9 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>Turmas</title>
+    <style>
+      body {
+        background: black;
+      }
+
+      /* Estilo para o botão de Sair */
+      .logout-button {
+        background-color: #c9fe00;
+        color: #333;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.3s;
+        position: relative;
+      }
+
+      .logout-button:hover {
+        background-color: #cc0000;
+      }
+    </style>
   </head>
   <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <span style="color: #c9fe00">&lt;</span>od
+        <span style="color: #c9fe00">:</span>fica Jo
+        <span id="barra">
+          \<span style="color: #c9fe00">/</span>
+        </span>
+        ens <span style="color: #c9fe00"> _ </span>
+      </a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+      <nav class="navbar">
+        <a href="#turmas" class="active">Home</a>
+        <a href="#galeria">Galeria</a>
+        <a href="/index.html">voltar</a>
+        <span class="active-navbar"></span>
+      </nav>
+    </header>
+
     <div class="area">
       <ul class="circles">
         <li></li>
@@ -21,8 +65,8 @@
         <li></li>
       </ul>
     </div>
-  
-    <section class="turmas">
+
+    <section class="turmas" id="turmas">
       <h1 class="heading2">
         Bem-vindo a sua Turma de <span class="verde">2024</span>
       </h1>
@@ -70,8 +114,10 @@
       </li>
     </section>
 
-    <section class="fotos-all">
-      <h1 class="heading2">Galeria <span class="verde">2024</span></h1>
+    <section class="fotos-all" id="galeria">
+      <h1 class="heading2">
+        Galeria <span class="verde">2024</span>
+      </h1>
       <br />
       <div class="image-container">
         <img
@@ -127,6 +173,46 @@
           modal.style.display = "none";
         }
       };
+
+      let menuIcon = document.querySelector("#menu-icon");
+      let navbar = document.querySelector(".navbar");
+
+      menuIcon.onclick = () => {
+        menuIcon.classList.toggle("bx-x");
+        navbar.classList.toggle("active");
+      };
+
+      let sections = document.querySelectorAll("section");
+      let navLinks = document.querySelectorAll("header nav a");
+
+      window.onscroll = () => {
+        sections.forEach((sec) => {
+          let top = window.scrollY;
+          let offset = sec.offsetTop - 100;
+          let height = sec.offsetHeight;
+          let id = sec.getAttribute("id");
+
+          if (top >= offset && top < offset + height) {
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              document
+                .querySelector('header nav a[href*="' + id + '"]')
+                .classList.add("active");
+            });
+          }
+        });
+
+        let header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 100);
+
+        menuIcon.classList.remove("bx-x");
+        navbar.classList.remove("active");
+      };
+
+      document.getElementById("logout-btn").addEventListener("click", function () {
+   
+        window.location.href = "index.html";
+      });
     </script>
   </body>
 </html>

@@ -1136,7 +1136,7 @@ ul .nome-aluno {
 }
 
 .fotos-all {
-  background: linear-gradient(-50deg, #242424, #2e2e2e, #02f71672, #1d5757);
+  background: linear-gradient(-50deg, #242424, #000000, #02f71672, #00ff22);
   background-size: 400% 400%;
   animation: gradient 9.5s ease infinite;
   display: flex;
@@ -1169,7 +1169,7 @@ ul .nome-aluno {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; 
   z-index: -1000;
 }
 

@@ -7,7 +7,7 @@ const generos = ["professora", "professor"];
 
 const texts = [
   "Realidade virtual, Robótica e IA",
-  "Word, Excel e Lógica de programação",
+  "Word, Excel e Lógica de programação"
 ];
 
 const images = ["img/image.png", "img/image1.png"];
@@ -21,8 +21,7 @@ document.getElementById("next-btn").addEventListener("click", function (event) {
 
   currentIndex = (currentIndex + 1) % texts.length;
 
-  document.getElementById("professor-genero").textContent =
-    generos[currentIndex];
+  document.getElementById("professor-genero").textContent = generos[currentIndex];
   document.getElementById("content-text").textContent = texts[currentIndex];
   document.getElementById("content-image").src = images[currentIndex];
   document.getElementById("professor-name").textContent = names[currentIndex];
@@ -62,3 +61,5 @@ window.onscroll = () => {
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 };
+
+

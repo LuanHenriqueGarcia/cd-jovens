@@ -2,273 +2,299 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>Aulas</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>Aulas</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <style>
-        :root {
-            --main-color: #c9fe00;
-        }
+  <style>
+    :root {
+      --main-color: #c9fe00;
+    }
 
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            margin: 0;
-        }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+    }
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            background-color: #333;
-            padding-top: 20px;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: #333;
+      padding-top: 20px;
+      box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
 
-        .sidebar a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #e0e0e0;
-            font-size: 18px;
-            transition: 0.3s;
-        }
+    .sidebar a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #e0e0e0;
+      font-size: 18px;
+      transition: 0.3s;
+    }
 
-        .sidebar a:hover {
-            background-color: #444;
-            color: var(--main-color);
-        }
+    .sidebar a:hover {
+      background-color: #444;
+      color: var(--main-color);
+    }
 
-        .content {
-            margin-left: 260px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            min-height: 100vh;
-        }
+    .content {
+      margin-left: 260px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      min-height: 100vh;
+    }
 
-        .video-item {
-            position: relative;
-            margin-bottom: 20px;
-            background-color: #2c2c2c;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
+    .video-item {
+      position: relative;
+      margin-bottom: 20px;
+      background-color: #2c2c2c;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
-        .video-overlay {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            z-index: 1;
-        }
+    .video-overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      z-index: 1;
+    }
 
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 8px;
-        }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+    }
 
-        .nav-tabs {
-            border-color: #444;
-        }
+    .nav-tabs {
+      border-color: #444;
+    }
 
-        .nav-tabs .nav-item .nav-link {
-            color: #e0e0e0;
-            background-color: #333;
-            border: 1px solid #444;
-            transition: background-color 0.3s;
-        }
+    .nav-tabs .nav-item .nav-link {
+      color: #e0e0e0;
+      background-color: #333;
+      border: 1px solid #444;
+      transition: background-color 0.3s;
+    }
 
-        .nav-tabs .nav-item .nav-link.active {
-            color: #fff;
-            background-color: var(--main-color);
-            border: 1px solid var(--main-color);
-        }
+    .nav-tabs .nav-item .nav-link.active {
+      color: #444;
+      background-color: var(--main-color);
+      border: 1px solid var(--main-color);
+    }
 
-        .nav-tabs .nav-item .nav-link:hover {
-            color: #fff;
-            background-color: #444;
-        }
+    .nav-tabs .nav-item .nav-link:hover {
+      color: #fff;
+      background-color: #444;
+    }
 
-        button {
-            background-color: var(--main-color);
-            color: #fff;
-            border: 1px solid var(--main-color);
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+    button {
+      background-color: var(--main-color);
+      color: #fff;
+      border: 1px solid var(--main-color);
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
 
-        button:hover {
-            background-color: #a4d100;
-            border-color: #a4d100;
-        }
+    button:hover {
+      background-color: #a4d100;
+      border-color: #a4d100;
+    }
 
-        .video-description {
-            margin-top: 10px;
-            padding: 15px;
-            background-color: #333;
-            color: #ccc;
-            border-radius: 5px;
-        }
+    .video-description {
+      margin-top: 10px;
+      padding: 15px;
+      background-color: #333;
+      color: #ccc;
+      border-radius: 5px;
+    }
 
-        .center-logo {
-            text-align: center;
-        }
+    .center-logo {
+      text-align: center;
+    }
 
-        .logout-icon {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #272727;
-            color: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s;
-        }
+    .logout-icon {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #272727;
+      color: #fff;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s;
+    }
 
-        .logout-icon:hover {
-            background-color: #000000;
-        }
+    .logout-icon:hover {
+      background-color: #000000;
+    }
 
-        /* Media queries para tornar o layout responsivo */
-        @media (max-width: 767px) {
-            .sidebar {
-                position: absolute;
-                height: auto;
-                width: 100%;
-                box-shadow: none;
-                padding-top: 10px;
-            }
+    @media (max-width: 767px) {
+      .sidebar {
+        position: absolute;
+        height: auto;
+        width: 100%;
+        box-shadow: none;
+        padding-top: 10px;
+      }
 
-            .content {
-                margin-left: 0;
-            }
+      .content {
+        margin-left: 0;
+      }
 
-            iframe {
-                height: 200px;
-            }
+      iframe {
+        height: 200px;
+      }
 
-            .sidebar a {
-                font-size: 16px;
-                padding: 8px 10px;
-            }
+      .sidebar a {
+        font-size: 16px;
+        padding: 8px 10px;
+      }
 
-            .nav-tabs {
-                flex-direction: column;
-            }
-        }
+      .nav-tabs {
+        flex-direction: column;
+      }
+    }
 
-        @media (max-width: 480px) {
-            iframe {
-                height: 180px;
-            }
-        }
-    </style>
+    @media (max-width: 480px) {
+      iframe {
+        height: 180px;
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: auto;
+      border: 6px solid #333;
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-    <div class="sidebar">
-        <div class="center-logo">
-            <a href="#" class="logo"><span style="color: #c9fe00">&lt;</span>od<span style="color: #c9fe00">:</span>fica
-                Jo<span id="barra">\<span style="color: #c9fe00">/</span></span>ens <span style="color: #c9fe00"> _</span></a>
-        </div>
-        <a href="#home" data-toggle="tab" class="tab-link" data-target="#home">Home</a>
-        <a href="#modulo1" data-toggle="tab" class="tab-link" data-target="#modulo1">Módulo 1: Word</a>
-        <a href="#modulo2" data-toggle="tab" class="tab-link" data-target="#modulo2">Módulo 2: Excel</a>
-        <a href="#modulo3" data-toggle="tab" class="tab-link" data-target="#modulo3">Módulo 3: Realidade Virtual</a>
-
-        <!-- Ícone de logout dentro da sidebar -->
-        <a href="/index.html" class="logout-icon">
-            <i class="bx bx-log-out"></i>
-        </a>
+  <div class="sidebar">
+    <div class="center-logo">
+      <a href="#" class="logo"><span style="color: #c9fe00">&lt;</span>od<span style="color: #c9fe00">:</span>fica
+        Jo<span id="barra">\<span style="color: #c9fe00">/</span></span>ens <span style="color: #c9fe00"> _</span></a>
     </div>
+    <a href="#home" data-toggle="tab" class="tab-link" data-target="#home">Home</a>
+    <a href="#modulo1" data-toggle="tab" class="tab-link" data-target="#modulo1">Módulo 1: Word</a>
+    <a href="#modulo2" data-toggle="tab" class="tab-link" data-target="#modulo2">Módulo 2: Excel</a>
+    <a href="#modulo3" data-toggle="tab" class="tab-link" data-target="#modulo3">Módulo 3: Realidade Virtual</a>
+    <a href="#modulo4" data-toggle="tab" class="tab-link" data-target="#modulo4">Módulo 4: Robótica</a>
+    <a href="#modulo5" data-toggle="tab" class="tab-link" data-target="#modulo5">Módulo 5: Lógica de programação</a>
 
-    <div class="content">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#modulo1">Módulo 1: Word</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#modulo2">Módulo 2: Excel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#modulo3">Módulo 3: Realidade Virtual</a>
-            </li>
-        </ul>
+    <!-- Ícone de logout dentro da sidebar -->
+    <a href="/index.html" class="logout-icon">
+      <i class="bx bx-log-out"></i>
+    </a>
+  </div>
 
-        <div class="tab-content">
-            <div id="home" class="container tab-pane active"><br>
-                <h3>Home</h3>
-                <p>Bem-vindo à plataforma de aulas online!</p>
-            </div>
+  <div class="content">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modulo1">Módulo 1: Word</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modulo2">Módulo 2: Excel</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modulo3">Módulo 3: Realidade Virtual</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modulo4">Módulo 4: Robótica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modulo5">Módulo 5: Lógica de programação</a>
+      </li>
+    </ul>
 
-            <div id="modulo1" class="container tab-pane fade"><br>
-                <h3>Módulo Word</h3>
-                <div class="video-item">
-                    <iframe src="https://drive.google.com/file/d/1ZhD3aa46-jnBxVlplLFBHN0gy36asgOQ/preview" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-description">
-                        <h5>Descrição:</h5>
-                        <p>Esta aula aborda os conceitos essenciais do Microsoft Word, como formatação de texto, criação de documentos e uso de recursos avançados para produtividade.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="modulo2" class="container tab-pane fade"><br>
-                <h3>Módulo Excel</h3>
-                <div class="video-item">
-                    <iframe src="https://drive.google.com/file/d/1OFSQIukMVU44psbgijnupOX92Dg51SKW/preview" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-description">
-                        <h5>Descrição:</h5>
-                        <p>Aprenda como utilizar as principais funções do Excel, incluindo fórmulas, tabelas dinâmicas e gráficos para análise de dados.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="modulo3" class="container tab-pane fade"><br>
-                <h3>Módulo Realidade Virtual e Aumentada</h3>
-                <div class="video-item">
-                    <iframe src="https://drive.google.com/file/d/1_Xf20RCeFK2vtHX9iC1GHCb15CxxZ8yD/preview" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-description">
-                        <h5>Descrição:</h5>
-                        <p>Explore os fundamentos da realidade virtual e aumentada, com exemplos práticos e aplicações em diferentes áreas.</p>
-                    </div>
-                </div>
-            </div>
+    <div class="tab-content">
+      <div id="home" class="container tab-pane active"><br>
+        <div class="text-center">
+          <img src="/img/full.png" alt="Imagem de apresentação" class="mx-auto d-block img">
         </div>
-    </div>
+      </div>
 
-    <script>
-        $(document).ready(function () {
-            $('.tab-link').click(function (e) {
-                e.preventDefault();
-                var targetTab = $(this).data('target');
-                $('.nav-tabs a[href="' + targetTab + '"]').tab('show');
-            });
-        });
-    </script>
+      <div id="modulo1" class="container tab-pane fade"><br>
+        <h3>Módulo Word</h3>
+        <div class="video-item">
+          <iframe src="https://drive.google.com/file/d/1ZhD3aa46-jnBxVlplLFBHN0gy36asgOQ/preview" frameborder="0" allowfullscreen></iframe>
+          <div class="video-description">
+            <h5>Descrição:</h5>
+            <p>Esta aula aborda os conceitos essenciais do Microsoft Word, como formatação de texto, criação de documentos e uso de recursos avançados para produtividade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="modulo2" class="container tab-pane fade"><br>
+        <h3>Módulo Excel</h3>
+        <div class="video-item">
+          <iframe src="https://drive.google.com/file/d/1OFSQIukMVU44psbgijnupOX92Dg51SKW/preview" frameborder="0" allowfullscreen></iframe>
+          <div class="video-description">
+            <h5>Descrição:</h5>
+            <p>Aprenda como utilizar as principais funções do Excel, incluindo fórmulas, tabelas dinâmicas e gráficos para análise de dados.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="modulo3" class="container tab-pane fade"><br>
+        <h3>Módulo Realidade Virtual e Aumentada</h3>
+        <div class="video-item">
+          <iframe src="https://drive.google.com/file/d/1_Xf20RCeFK2vtHX9iC1GHCb15CxxZ8yD/preview" frameborder="0" allowfullscreen></iframe>
+          <div class="video-description">
+            <h5>Descrição:</h5>
+            <p>Explore os fundamentos da realidade virtual e aumentada, com exemplos práticos e aplicações em diferentes áreas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="modulo4" class="container tab-pane fade"><br>
+        <h3>Módulo Robótica</h3>
+        <!-- Conteúdo do módulo 4 -->
+      </div>
+
+      <div id="modulo5" class="container tab-pane fade"><br>
+        <h3>Módulo Lógica de Programação</h3>
+        <!-- Conteúdo do módulo 5 -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('.tab-link').click(function (e) {
+        e.preventDefault();
+        var targetTab = $(this).data('target');
+        $('.nav-tabs a[href="' + targetTab + '"]').tab('show');
+      });
+    });
+  </script>
 
 </body>
 
